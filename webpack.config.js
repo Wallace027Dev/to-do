@@ -23,10 +23,10 @@ const cssLoader={
 module.exports = {
             entry: "./src/index.js", // arquivo de entrada
             output: {
-                path: path.resolve(__dirname, "dist"), //pasta de saída
+                path: path.resolve(__dirname, "public"), //pasta de saída
                 filename: "bundle.js", // nome do aquivo de saída
             },
-            devServer: { static: "./dist" }, // pasta de saída
+            devServer: { static: "./public" }, // pasta de saída
             plugins: [
                 new HtmlWebpackPlugin({
                     template: "./src/index.html",
@@ -36,12 +36,6 @@ module.exports = {
             module: {
                 rules: [
                     babelLoader,cssLoader,
-                    {
-                        test: /\.svg/, //extensão de arquivo
-                        use: {
-                            loader: "svg-url-loader",
-                        },
-                    },
                 ],
             }, // objeto de configuração de modulo
         };
